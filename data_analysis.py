@@ -57,12 +57,14 @@ def read(data_needs, data_type):
 	open_file.close()
 	return arr
 
+# These functions are all used for analyzing and graphing the data
+
 def plot_graph(x, y, graph_title):
 	plt.plot(x,y)
 	plt.title(graph_title)
 	plt.show()
 
-def ratio(data_set, data_type, numerator_type, denominator_type, graph_title):
+def ratio_graph(data_set, data_type, numerator_type, denominator_type, graph_title):
 	date_arr = []
 	y_axis_arr = []
 	numerator_index = quandl_return_type[numerator_type]
@@ -113,7 +115,7 @@ daily_returns_graph({"Soybean_Oil_Futures": "CHRIS/CME_BO1"}, "cumul", "Cumulati
 daily_returns_graph({"Soybean_Futures": "CHRIS/CME_S1"}, "cumul", "Cumulative Daily Returns for Soybeans")
 
 # Task 3b
-ratio({"Commitment_of_Traders_Soybeans_Futures_Only": "CFTC/S_F_ALL"}, "normalize", 
+ratio_graph({"Commitment_of_Traders_Soybeans_Futures_Only": "CFTC/S_F_ALL"}, "normalize", 
 "Total Reportable Longs", 
 "Total Reportable Shorts", 
 "Ratio between Long and Short for Soybeans") # Task 3b
